@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editora Solielle</title>
-    <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="stylesheet" href="../static/css/animations.css">
-    <link rel="stylesheet" href="../static/css/pop-up.css">
-    <link rel="stylesheet" href="../static/css/darkTheme.css">
+    <<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animations.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pop-up.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/darkTheme.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css">
 
-    <link rel="website icon" href="static/img/logo.png">
+    <link rel="icon" href="{{ url_for('static', filename='img/logo.png') }}">
 </head>
 <body>
     <header id="site-header">
-        <img id="item-left" class="item" src="../static/img/header item left.png" alt="detalhe esquerda" width="52.5px">
-        <img id="item-right" class="item" src="../static/img/header item right.png" alt="detalhe direita" width="53px">
-        <img id="item-left-night" class="item" src="../static/img/item-night-left.png" alt="detalhe esquerda" width="52px">
-        <img id="item-right-night" class="item" src="../static/img/item-night-right.png" alt="detalhe direita" width="53.8px">
+        <img id="item-left" class="item" src="{{ url_for('static', filename='img/header item left.png') }}" alt="detalhe esquerda" width="52.5px">
+        <img id="item-right" class="item" src="{{ url_for('static', filename='img/header item right.png') }}" alt="detalhe direita" width="53px">
+        <img id="item-left-night" class="item" src="{{ url_for('static', filename='img/item-night-left.png') }}" alt="detalhe esquerda" width="52px">
+        <img id="item-right-night" class="item" src="{{ url_for('static', filename='img/item-night-right.png') }}" alt="detalhe direita" width="53.8px">
         <div class="wrap container">
-            <img src="../static/img/logo dark.png" alt="logo tema escuro" width="100px" id="brand-light">
-            <img src="../static/img/logo light.png" alt="logo tema claro" width="100px" id="brand-night">
+            <img src="{{ url_for('static', filename='img/logo dark.png') }}" width="100px" id="brand-light">
+            <img src="{{ url_for('static', filename='img/logo light.png') }}" width="100px" id="brand-night">
 
             <nav class="menu-buttons">
                 <button onclick="toHome()">Início</button>
@@ -38,8 +38,13 @@
                     <span class="quantity">0</span>
                 </button>
                 <!-- <button id="user-btn" title="Cadastrar ou Entrar"><i class="ri-account-circle-fill"></i></button> -->
-                <button class="btn-theme" id="light-btn" title="Mudar para tema escuro"><img src="../static/img/bear.png" alt="tema claro" width="59px"></button>
-                <button class="btn-theme" id="night-btn" title="Mudar para tema claro"><img src="../static/img/wolf.png" alt="tema escuro" width="59px"></button>
+                <button class="btn-theme" id="light-btn" title="Mudar para tema escuro">
+                    <img src="{{ url_for('static', filename='img/bear.png') }}" alt="tema claro" width="59px">
+                </button>
+
+                <button class="btn-theme" id="night-btn" title="Mudar para tema claro">
+                    <img src="{{ url_for('static', filename='img/wolf.png') }}" alt="tema escuro" width="59px">
+                </button>
                 <script>
                     // === Botão de tema escuro e claro ===
                     const themeBtnLight = document.getElementById("light-btn");
@@ -126,7 +131,7 @@
             <button id="close-cart" class="close-btn">&times;</button>
             <div class="title-cart" style="display: flex; align-items: center; gap: .8rem">
                 <h2>Carrinho Solielle</h2>
-                <img src="../static/img/cat.png" alt="icon cat" width="50px" style="transform: rotate(30deg);">
+                <img src="{{ url_for('static', filename='img/cat.png') }}" alt="icon cat" width="50px" style="transform: rotate(30deg);">
             </div>
             <ul id="cart-items"></ul>
             <div class="cart-footer">
@@ -150,9 +155,17 @@
                 <div class="dots" aria-label="Ir para slide" id="dots"></div>
             </div>  
             <div class="slides" aria-live="polite">
-                <div class="slide active"><img src="../static/img/banner1.png" alt="img 1"></div>
-                <div class="slide"><img src="../static/img/banner2.png" alt="img 2"></div>
-                <div class="slide"><img src="../static/img/banner3.png" alt="img 3"></div>
+                <div class="slide active">
+                <img src="{{ url_for('static', filename='img/banner1.png') }}" alt="img 1">
+            </div>
+
+            <div class="slide">
+                <img src="{{ url_for('static', filename='img/banner2.png') }}" alt="img 2">
+            </div>
+
+            <div class="slide">
+                <img src="{{ url_for('static', filename='img/banner3.png') }}" alt="img 3">
+            </div>
             </div>
         </div>
     </main>
@@ -220,7 +233,7 @@
             <div>
                 <div style="display:flex; gap:1.5rem; align-items: end;">
                     <h2>Sobre nós</h2>
-                    <img src="../static/img/icons.png" alt="icons solielle" width="150px">
+                    <img src="{{ url_for('static', filename='img/icons.png') }}" alt="icons solielle" width="150px">
                 </div>
                 <p>
                     A Editora Solielle nasceu de três amigas que amam histórias (e café em quantidades nada saudáveis).<br><br>
@@ -343,9 +356,9 @@
         </div>
     </div>
 
-    <script src="../static/js/main.js"></script>
-    <script src="../static/js/cart.js"></script>
-    <script src="../static/js/whats.js"></script>
-    <script src="../static/js/posts.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/cart.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/whats.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/posts.js') }}"></script>
 </body>
 </html>
