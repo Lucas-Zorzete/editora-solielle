@@ -1,60 +1,60 @@
 // ======= DADOS DA SOLIELLE =======
-const BOOKS = [
-  {
-    id: 1,
-    link: "#livroA",
-    title:'Fragmentos de Mim',
-    author:'Gabrielle Côrrea',
-    genre:'Poesias • Autobiografia • Literatura profunda',
-    price:24.99,
-    cover:'static/img/Fragmentos_de_Mim.jpg',
-    sinopse: 'O livro Fragmentos de Mim reúne poemas que registram as emoções e descobertas de uma jovem de quinze anos enquanto ela tenta entender a si mesma. Cada texto funciona como um retrato de seus conflitos, afetos e inseguranças, revelando o amadurecimento emocional típico da adolescência. É uma obra que busca conexão com o leitor ao revisitar experiências e sentimentos comuns a essa fase da vida.'
-  },
-  {
-    id: 2,
-    link: "#livroB",
-    title:'Onde o Tempo faz a Curva',
-    author:'Thalita Monteiro',
-    genre:'Memórias • Autobiografia',
-    price:12.50,
-    cover:'static/img/Onde_o_Tempo_faz_a_Curva.jpg',
-    sinopse: 'Este livro revela, de forma franca, a trajetória de quem cresceu entre traumas, instabilidade emocional e a luta diária contra a depressão. Entre relatos de autodestruição, confusão interna e solidão, também surgem momentos de resistência: amizades que seguraram a dor, o apoio imperfeito da mãe e a escrita como refúgio quando nada mais fazia sentido. Não é uma história de superação idealizada, mas um testemunho real de quem já se sentiu quebrado, exausto e sem saída — e ainda assim encontrou pequenos motivos para continuar.'
-  }
-];
+// const BOOKS = [
+//   {
+//     id: 1,
+//     link: "#livroA",
+//     title:'Fragmentos de Mim',
+//     author:'Gabrielle Côrrea',
+//     genre:'Poesias • Autobiografia • Literatura profunda',
+//     price:24.99,
+//     cover:'static/img/Fragmentos_de_Mim.jpg',
+//     sinopse: 'O livro Fragmentos de Mim reúne poemas que registram as emoções e descobertas de uma jovem de quinze anos enquanto ela tenta entender a si mesma. Cada texto funciona como um retrato de seus conflitos, afetos e inseguranças, revelando o amadurecimento emocional típico da adolescência. É uma obra que busca conexão com o leitor ao revisitar experiências e sentimentos comuns a essa fase da vida.'
+//   },
+//   {
+//     id: 2,
+//     link: "#livroB",
+//     title:'Onde o Tempo faz a Curva',
+//     author:'Thalita Monteiro',
+//     genre:'Memórias • Autobiografia',
+//     price:12.50,
+//     cover:'static/img/Onde_o_Tempo_faz_a_Curva.jpg',
+//     sinopse: 'Este livro revela, de forma franca, a trajetória de quem cresceu entre traumas, instabilidade emocional e a luta diária contra a depressão. Entre relatos de autodestruição, confusão interna e solidão, também surgem momentos de resistência: amizades que seguraram a dor, o apoio imperfeito da mãe e a escrita como refúgio quando nada mais fazia sentido. Não é uma história de superação idealizada, mas um testemunho real de quem já se sentiu quebrado, exausto e sem saída — e ainda assim encontrou pequenos motivos para continuar.'
+//   }
+// ];
 
 
-const AUTHORS = [
-  {
-    name: 'Thalita Monteiro',
-    avatar: 'static/img/avatar_thalita.jpeg',
-    pet: 'static/img/Garfield_Solielle.png',
-    width: 75,
-    emoji: '🏵️',
-    bio: 'O coração das palavras, que vive a escrita intensamente, trazendo emoção, drama e paixão pela literatura.<br><br> Ama escrever, se emociona com histórias e, na Solielle, cuida dos textos com carinho e respeito, para que as palavras cheguem a quem precisa lê-las.'
-  },
-  {
-    name: 'Gabrielle Côrrea',
-    avatar: 'static/img/avatar_bibi.jpeg',
-    pet: 'static/img/Snoopy_Solielle.png',
-    width: 88,
-    emoji: '🌸',
-    bio: 'A criativa sensível que transforma sentimentos em imagens e formas com doçura e olhar artístico.<br><br> Ama criar em traços e palavras, encontrou na arte um refúgio e um jeito de dar voz ao que sente. Na Solielle, transforma emoções em criações que acolhem e inspiram.'
-  },
-  {
-    name: 'Sofia Mendes',
-    avatar: 'static/img/avatar_sofia.jpeg',
-    pet: 'static/img/Pooh_Solielle.png',
-    width: 65,
-    emoji: '🌻',
-    bio: 'A mente inquieta e comunicativa, cheia de ideias e estratégias para levar histórias mais longe.<br><br> Ama desenhar e escrever, encontrou na criação uma forma de se expressar e se sentir em paz. Cuida das palavras e ideias para que transmitam verdade e acolhimento.'
-  }
-];
+// const AUTHORS = [
+//   {
+//     name: 'Thalita Monteiro',
+//     avatar: 'static/img/avatar_thalita.jpeg',
+//     pet: 'static/img/Garfield_Solielle.png',
+//     width: 75,
+//     emoji: '🏵️',
+//     bio: 'O coração das palavras, que vive a escrita intensamente, trazendo emoção, drama e paixão pela literatura.<br><br> Ama escrever, se emociona com histórias e, na Solielle, cuida dos textos com carinho e respeito, para que as palavras cheguem a quem precisa lê-las.'
+//   },
+//   {
+//     name: 'Gabrielle Côrrea',
+//     avatar: 'static/img/avatar_bibi.jpeg',
+//     pet: 'static/img/Snoopy_Solielle.png',
+//     width: 88,
+//     emoji: '🌸',
+//     bio: 'A criativa sensível que transforma sentimentos em imagens e formas com doçura e olhar artístico.<br><br> Ama criar em traços e palavras, encontrou na arte um refúgio e um jeito de dar voz ao que sente. Na Solielle, transforma emoções em criações que acolhem e inspiram.'
+//   },
+//   {
+//     name: 'Sofia Mendes',
+//     avatar: 'static/img/avatar_sofia.jpeg',
+//     pet: 'static/img/Pooh_Solielle.png',
+//     width: 65,
+//     emoji: '🌻',
+//     bio: 'A mente inquieta e comunicativa, cheia de ideias e estratégias para levar histórias mais longe.<br><br> Ama desenhar e escrever, encontrou na criação uma forma de se expressar e se sentir em paz. Cuida das palavras e ideias para que transmitam verdade e acolhimento.'
+//   }
+// ];
 
-const POSTS = [
-  {id: 1, title:'Lançamentos do mês', excerpt:'Confira os livros que chegam às prateleiras este mês.', cover:'static/img/lançamentos.png'},
-  {id: 2, title:'Listas e recomendações dos autores', excerpt:'“3 motivos para continuar escrevendo”, “Como criar personagem marcante?”...', cover:'static/img/recomendações.png'},
-  {id: 3, title:'Artigos que inspiram os autores', excerpt:'Confira as reflexões, curiosidades e textos curtos que estimulam os autores.', cover:'static/img/artigos.png'}
-];
+// const POSTS = [
+  // {id: 1, title:'Lançamentos do mês', excerpt:'Confira os livros que chegam às prateleiras este mês.', cover:'static/img/lançamentos.png'},
+  // {id: 2, title:'Listas e recomendações dos autores', excerpt: '“3 motivos para continuar escrevendo”, “Como criar personagem marcante?”...', cover:'static/img/recomendações.png'},
+  // {id: 3, title:'Artigos que inspiram os autores', excerpt:'Confira as reflexões, curiosidades e textos curtos que estimulam os autores.', cover:'static/img/artigos.png'}
+// ];
 
 // const searchInput = document.getElementById("search-input");
 // const searchResults = document.getElementById("searchResults");
@@ -91,6 +91,10 @@ const POSTS = [
 //     searchResults.style.display = "block";
 // });
 
+let BOOKS_DATA = [];
+let AUTHORS_DATA = [];
+let POSTS_DATA = [];
+
 // ======= FUNÇÕES AUXILIARES =======
 const $ = (sel, el=document) => el.querySelector(sel);
 const $$ = (sel, el=document) => [...el.querySelectorAll(sel)];
@@ -118,7 +122,7 @@ const renderBooks = (list) => {
           <div class="meta">${b.author} • ${b.genre}</div>
           <div class="price"><p>R$ ${price}</p></div>
           <div class="buttons" style="display: flex; flex-direction: column; gap: .8rem">
-            <button onclick="sendWhats('${b.title}', ${b.price})" class="btn" style="font-size: 1em">
+            <button onclick="window.location.href='${b.link}'" class="btn" style="font-size: 1em">
               <i class="ri-whatsapp-line" style="font-size: 1em; font-weight: 300;"></i> 
               Comprar
             </button>
@@ -148,6 +152,10 @@ const renderAuthors = (list) => {
                 </div>
                 <h3>${a.emoji} ${a.name}</h3>
                 <p>${a.bio}</p>
+                <button onclick="window.location.href='${a.link}'" class="account-btn" id="${a.emoji}">
+                  <i class="ri-instagram-line"></i>
+                  ${a.account}
+                </button>
             </div>
         </div>
     </article>
@@ -179,10 +187,34 @@ const renderPosts = (list) => {
   });
 };
 
-// Render inicial
-renderBooks(BOOKS);
-renderAuthors(AUTHORS);
-renderPosts(POSTS);
+const activateReveal = () => {
+  $$('.reveal').forEach(el => io.observe(el));
+};
+
+// CARREGAR OS DADOS COM FETCH
+async function loadData() {
+    try {
+      const [booksRes, authorsRes, postsRes] = await Promise.all([
+        fetch("/api/books"),
+        fetch("/api/authors"),  
+        fetch("/api/posts")
+      ]);
+
+      BOOKS_DATA = await booksRes.json();
+      AUTHORS_DATA = await authorsRes.json();
+      POSTS_DATA = await postsRes.json();
+
+      renderBooks(BOOKS_DATA);
+      renderAuthors(AUTHORS_DATA);
+      renderPosts(POSTS_DATA);
+
+      activateReveal();
+
+    } catch (error) {
+      console.error("Erro ao carregar os dados:", error)
+    }
+}
+loadData();
 
 const modal = document.getElementById("bookModal");
 const closeModal = document.getElementById("closeModal");
@@ -203,7 +235,7 @@ document.addEventListener("click", e => {
     // pega o card onde essa capa está
     const card = cover.closest(".card");
     const title = card.dataset.title;
-    const book = BOOKS.find(b => b.title === title);
+    const book = BOOKS_DATA.find(b => b.title === title);
 
     if (book) {
         modalCover.src = book.cover;
@@ -264,13 +296,13 @@ showSlide(0);
 
 // Debounce
 let t; const debounced = (fn, wait=140) => (...args)=>{ clearTimeout(t); t=setTimeout(()=>fn(...args), wait); };
-input.addEventListener('input', debounced(()=>{
-  const q = input.value.trim();
-  const url = new URL(location);
-  if(q){ url.searchParams.set('q', q); } else { url.searchParams.delete('q'); }
-  history.replaceState({},'', url);
-  search(q);
-}, 160));
+// input.addEventListener('input', debounced(()=>{
+//   const q = input.value.trim();
+//   const url = new URL(location);
+//   if(q){ url.searchParams.set('q', q); } else { url.searchParams.delete('q'); }
+//   history.replaceState({},'', url);
+//   search(q);
+// }, 160));
 
 // Atalhos de teclado
 addEventListener('keydown', (e)=>{

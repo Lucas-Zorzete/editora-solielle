@@ -112,6 +112,9 @@ body.darkTheme .card-back {
     color: #CDCDCD;
     box-shadow: 0 0 35px #1d00628e;
     border: none;
+}
+body.darkTheme .account-btn {
+    background-color: #919191;
 }   
 
 /* POSTS */

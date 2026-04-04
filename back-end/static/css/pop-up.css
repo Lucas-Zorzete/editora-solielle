@@ -293,7 +293,8 @@
 }
 
 .btn-buy {
-    background: #37DFCB;
+    background: var(--primary-color);
+    color: #fff;
     border: none;
     padding: 12px 22px;
     border-radius: 8px;
@@ -301,7 +302,7 @@
     font-size: 1.05rem;
 }
 .btn-buy:hover {
-  background: #2db6a6;
+  background: #238579;
 } 
 
 @keyframes pop {

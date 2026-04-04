@@ -36,6 +36,14 @@
   transition: .2s linear;
 }
 
+@media (max-width:1040px) {
+  .btn-cart::after {
+    opacity: 1;
+    visibility: inherit;
+    top: 100%
+  }
+}
+
 .btn-cart:hover > .icon-cart path {
   fill: var(--primary-color);
 }
@@ -53,7 +61,7 @@
 .team {
   display: flex;
   gap: .9rem;
-  height: 30em;
+  height: 32em;
   position: relative;
   flex-direction: column;
   align-items: start;

@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editora Solielle</title>
-    <link rel="stylesheet" href="static/css/style.css">
-    <link rel="stylesheet" href="static/css/animations.css">
-    <link rel="stylesheet" href="static/css/pop-up.css">
-    <link rel="stylesheet" href="static/css/darkTheme.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/animations.css">
+    <link rel="stylesheet" href="../static/css/pop-up.css">
+    <link rel="stylesheet" href="../static/css/darkTheme.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css">
 
     <link rel="website icon" href="static/img/logo.png">
@@ -19,16 +19,16 @@
         <img id="item-left-night" class="item" src="../static/img/item-night-left.png" alt="detalhe esquerda" width="52px">
         <img id="item-right-night" class="item" src="../static/img/item-night-right.png" alt="detalhe direita" width="53.8px">
         <div class="wrap container">
-            <img src="static/img/logo dark.png" alt="logo tema escuro" width="100px" id="brand-light">
-            <img src="static/img/logo light.png" alt="logo tema claro" width="100px" id="brand-night">
+            <img src="../static/img/logo dark.png" alt="logo tema escuro" width="100px" id="brand-light">
+            <img src="../static/img/logo light.png" alt="logo tema claro" width="100px" id="brand-night">
 
             <nav class="menu-buttons">
-                <a href="#home">Início</a>
-                <a href="#catalog">Catálogo de Livros</a>
-                <a href="#authors">Autores</a>
-                <a href="#blog">Notícias & Blog</a>
-                <a href="#about">Sobre Nós</a>
-                <a href="#contact">Contato</a>
+                <button onclick="toHome()">Início</button>
+                <button onclick="toCatalog()">Catálogo de Livros</button>
+                <button onclick="toAuthors()">Autores</button>
+                <button onclick="toNB()">Notícias & Blogs</button>
+                <button onclick="toAbout()">Sobre Nós</button>
+                <button onclick="toContact()">Contato</button>
             </nav>
             <nav class="user-buttons">
                 <button data-quantity="0" class="btn-cart" id="cart-btn" title="Carrinho">
@@ -39,7 +39,7 @@
                 </button>
                 <!-- <button id="user-btn" title="Cadastrar ou Entrar"><i class="ri-account-circle-fill"></i></button> -->
                 <button class="btn-theme" id="light-btn" title="Mudar para tema escuro"><img src="../static/img/bear.png" alt="tema claro" width="59px"></button>
-                <button class="btn-theme" id="night-btn" title="Mudar para tema claro"><img src="../static/img/wolf.png" alt="tema escuro" width="55px"></button>
+                <button class="btn-theme" id="night-btn" title="Mudar para tema claro"><img src="../static/img/wolf.png" alt="tema escuro" width="59px"></button>
                 <script>
                     // === Botão de tema escuro e claro ===
                     const themeBtnLight = document.getElementById("light-btn");
@@ -66,15 +66,48 @@
     <header id="secondary-header">
         <div class="secondary-container">
             <nav class="secondary-menu">
-                <a href="#home">Início</a>
-                <a href="#catalog">Catálogo</a>
-                <a href="#authors">Autores</a>
-                <a href="#blog">N&B</a>
-                <a href="#about">Sobre</a>
-                <a href="#contact">Contato</a>
+                <button onclick="toHome()">Início</button>
+                <button onclick="toCatalog()">Catálogo</button>
+                <button onclick="toAuthors()">Autoras</button>
+                <button onclick="toNB()">N&B</button>
+                <button onclick="toAbout()">Sobre</button>
+                <button onclick="toContact()">Contato</button>
             </nav>  
         </div>
     </header>
+
+    <script>
+        function toHome() {
+            document.getElementById("home").scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        function toCatalog() {
+            document.getElementById("catalog").scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        function toAuthors() {
+            document.getElementById("authors").scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        function toNB() {
+            document.getElementById("blog").scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        function toAbout() {
+            document.getElementById("about").scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        function toContact() {
+            document.getElementById("contact").scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    </script>
 
     <script>
         window.addEventListener("scroll", function() {
@@ -134,7 +167,7 @@
                     <!-- Resultados aparecem aqui
                 </div>
             </form> -->
-            <h2>Catálogo de Livros</h2>
+            <h2 style="margin-bottom: 3em;">Catálogo de Livros</h2>
             <!-- <div style="display: flex; gap: .5rem; align-items: center;">
                 <label for="genre" class="muted">Filtrar:</label>
                 <select id="genre" aria-label="Filtrar por gênero">
@@ -148,14 +181,14 @@
 
     <section id="authors">
         <div class="container">
-            <h2 class="section-title">Autores</h2>
+            <h2 class="section-title" style="margin-bottom: 3em;">Autores</h2>
             <div id="authors-grid" class="grid authors reveal"></div>
         </div>
     </section>
 
     <section id="blog">
         <div class="container">
-            <h2 class="section-title">Notícias & Blog</h2>
+            <h2 class="section-title" style="margin-bottom: 3em;">Notícias & Blog</h2>
             <div id="posts-list" class="grid reveal"></div>
         </div>
         <div id="launch-modal" class="modal">
@@ -243,7 +276,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="" target="_blank">
+                            <a href="https://drive.google.com/file/d/1oeD5EzA40SuHKDjz2EmnHLk63NeooALe/view?usp=sharing" target="_blank">
                                 Capista e Designer Gráfica
                             </a>
                         </li>
@@ -283,8 +316,8 @@
             </div>
             <hr style="border: 0; border-top: 1px solid #BDBDBD; margin: 1.2rem 0">
             <div style="display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;" class="muted footer">
-                <span>© 2025 Editora Solielle – Todos os direitos reservados</span>
-                <span>Desenvolvido por <a href="https://www.instagram.com/luc4s_.r3is" target="_blank">Lucas Zorzete dos Reis</a></span>
+                <span>© 2026 Editora Solielle – Todos os direitos reservados</span>
+                <span>Desenvolvido por <a href="https://github.com/Lucas-Zorzete" target="_blank">Lucas Zorzete dos Reis</a></span>
             </div>
         </div>
     </footer>
@@ -310,9 +343,9 @@
         </div>
     </div>
 
-    <script src="static/js/main.js"></script>
-    <script src="static/js/cart.js"></script>
-    <script src="static/js/whats.js"></script>
-    <script src="static/js/posts.js"></script>
+    <script src="../static/js/main.js"></script>
+    <script src="../static/js/cart.js"></script>
+    <script src="../static/js/whats.js"></script>
+    <script src="../static/js/posts.js"></script>
 </body>
 </html>

@@ -56,7 +56,7 @@ function updateCart() {
 
 // Função para adicionar ao carrinho
 function addToCart(id) {
-  const book = BOOKS.find(b => b.id === id);
+  const book = BOOKS_DATA.find(b => b.id === id);
   if (!book) return;
 
   // garante número

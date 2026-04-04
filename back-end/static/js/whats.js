@@ -11,18 +11,18 @@
 //     document.getElementById('response').innerHTML = result;
 // })
 
-function sendWhats(title, price) {
-  const phone = 5511948573463;
+// function sendWhats(title, price) {
+//   const phone = 5511948573463;
 
-  const formattedPrice = parseFloat(price).toFixed(2).replace('.', ',');
+//   const formattedPrice = parseFloat(price).toFixed(2).replace('.', ',');
 
-  const text = `Olá! Me chamo (seu nome).\nVim pelo site da *Solielle* e gostaria de comprar o livro *${title}* por R$${formattedPrice}.\nPoderia me ajudar com a compra?`;
+//   const text = `Olá! Me chamo (seu nome).\nVim pelo site da *Solielle* e gostaria de comprar o livro *${title}* por R$${formattedPrice}.\nPoderia me ajudar com a compra?`;
 
-  const msgFormated = encodeURIComponent(text);
-  const url = `https://wa.me/${phone}/?text=${msgFormated}`;
+//   const msgFormated = encodeURIComponent(text);
+//   const url = `https://wa.me/${phone}/?text=${msgFormated}`;
   
-  window.open(url, '_blank');
-}
+//   window.open(url, '_blank');
+// }
 
 
 function finalizePurchase() {
