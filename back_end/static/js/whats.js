@@ -43,15 +43,15 @@ function finalizePurchase() {
     .join('\n');
 
   const text = 
-    `Olá! Me chamo (seu nome) e vim pelo site da *Solielle*.
+  `Olá! Me chamo (seu nome) e vim pelo site da *Solielle*.
 
-    Gostaria de finalizar minha compra com os seguintes livros:
+Gostaria de finalizar minha compra com os seguintes livros:
 
-    ${bookList}
+${bookList}
 
-    *Total:* R$${totalFormatted}
+*Total:* R$${totalFormatted}
 
-    Poderiam me ajudar com o pagamento e envio?`;
+Poderiam me ajudar com o pagamento e envio?`;
 
   const msgFormated = encodeURIComponent(text);
   const link = `https://wa.me/${phone}?text=${msgFormated}`;

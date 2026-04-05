@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editora Solielle</title>
-    <<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/animations.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pop-up.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/darkTheme.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
     <link rel="icon" href="{{ url_for('static', filename='img/logo.png') }}">
 </head>
@@ -81,6 +82,63 @@
         </div>
     </header>
 
+
+    <script>
+        window.addEventListener("scroll", function() {
+            const header = document.getElementById("secondary-header");
+            if (window.scrollY > 50) {
+                header.classList.add("shrink");
+            } else {
+                header.classList.remove("shrink");
+            }
+        });
+        </script>
+    <div id="toast" class="toast"></div>
+
+    <div id="cart-popup" class="cart-popup">
+        <div class="cart-content">
+            <button id="close-cart" class="close-btn">&times;</button>
+            <div class="title-cart" style="display: flex; align-items: center; gap: .8rem">
+                <h2>Carrinho Solielle</h2>
+                <img src="{{ url_for('static', filename='img/cat.png') }}" alt="icon cat" width="50px" style="transform: rotate(30deg);">
+            </div>
+            <ul id="cart-items"></ul>
+            <div class="cart-footer">
+                <p>Total: <span id="cart-total">R$0,00</span></p>
+                <button onclick="finalizePurchase()" class="btn btn-finalize">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+    
+    <main id="home" class="container hero">
+        <div class="banner reveal">
+            <div>
+                <button class="bedge" id="btn-novidades" onclick="irParaNovidade()" style="display: none;">Novidade</button>
+                <h1>Descubra histórias que <span style="color:var(--primary-color)">transformam</span>.</h1>
+                <p class="muted">Lançamentos, autores e notícias da <strong>Editoria Solielle</strong> em um só lugar. 
+                Explore o catálogo e encontre sua próxima leitura.</p>
+                <div style="display: flex; gap: .6rem; flex-wrap: wrap;">
+                    <button onclick="toNB()" style="color: var(--bg-color); font-size: 1em;" class="btn">Ver notícias e blogs</button>
+                    <a style="color: var(--text)" href="https://l.instagram.com/?u=https%3A%2F%2Fwww.vakinha.com.br%2F5567514%3Ffbclid%3DPAZXh0bgNhZW0CMTEAAaca6bLOCoVwiu0_LKrP9aGx8W97yXn7J7IaJvcrLvR-XUWe6jwt8Fl6Gb9VoQ_aem_vBC4fxN33GlF5ts3b866pQ&e=AT2AXcZZZE_xbMW65Ko6m8VI7GcFBcD4zQeonL38P2CG-9jFWpP55KIifG1ya7vMApJAWgAC_aPkRiSkdzphBUiU1xMkKsIRQFpaDfDKAKiBPqTaJBn6MX9O0A" title="Vakinha Solielle" target="_blank" class="btn secondary">Contribua Conosco</a>
+                </div>
+                <div class="dots" aria-label="Ir para slide" id="dots"></div>
+            </div>  
+            <div class="slides" aria-live="polite">
+                <div class="slide active">
+                <img src="{{ url_for('static', filename='img/banner1.png') }}" alt="img 1">
+            </div>
+
+            <div class="slide">
+                <img src="{{ url_for('static', filename='img/banner2.png') }}" alt="img 2">
+            </div>
+
+            <div class="slide">
+                <img src="{{ url_for('static', filename='img/banner3.png') }}" alt="img 3">
+            </div>
+            </div>
+        </div>
+    </main>
+
     <script>
         function toHome() {
             document.getElementById("home").scrollIntoView({
@@ -113,62 +171,6 @@
             });
         }
     </script>
-
-    <script>
-        window.addEventListener("scroll", function() {
-            const header = document.getElementById("secondary-header");
-            if (window.scrollY > 50) {
-            header.classList.add("shrink");
-            } else {
-            header.classList.remove("shrink");
-            }
-        });
-    </script>
-    <div id="toast" class="toast"></div>
-
-    <div id="cart-popup" class="cart-popup">
-        <div class="cart-content">
-            <button id="close-cart" class="close-btn">&times;</button>
-            <div class="title-cart" style="display: flex; align-items: center; gap: .8rem">
-                <h2>Carrinho Solielle</h2>
-                <img src="{{ url_for('static', filename='img/cat.png') }}" alt="icon cat" width="50px" style="transform: rotate(30deg);">
-            </div>
-            <ul id="cart-items"></ul>
-            <div class="cart-footer">
-                <p>Total: <span id="cart-total">R$0,00</span></p>
-                <button onclick="finalizePurchase()" class="btn btn-finalize">Finalizar Compra</button>
-            </div>
-        </div>
-    </div>
-    
-    <main id="home" class="container hero">
-        <div class="banner reveal">
-            <div>
-                <button class="bedge">Novidade</button>
-                <h1>Descubra histórias que <span style="color:var(--primary-color)">transformam</span>.</h1>
-                <p class="muted">Lançamentos, autores e notícias da <strong>Editoria Solielle</strong> em um só lugar. 
-                Explore o catálogo e encontre sua próxima leitura.</p>
-                <div style="display: flex; gap: .6rem; flex-wrap: wrap;">
-                    <a style="color: var(--bg-color)" class="btn" href="#blog">Ver notícias e blogs</a>
-                    <a style="color: var(--text)" href="https://l.instagram.com/?u=https%3A%2F%2Fwww.vakinha.com.br%2F5567514%3Ffbclid%3DPAZXh0bgNhZW0CMTEAAaca6bLOCoVwiu0_LKrP9aGx8W97yXn7J7IaJvcrLvR-XUWe6jwt8Fl6Gb9VoQ_aem_vBC4fxN33GlF5ts3b866pQ&e=AT2AXcZZZE_xbMW65Ko6m8VI7GcFBcD4zQeonL38P2CG-9jFWpP55KIifG1ya7vMApJAWgAC_aPkRiSkdzphBUiU1xMkKsIRQFpaDfDKAKiBPqTaJBn6MX9O0A" title="Vakinha Solielle" target="_blank" class="btn secondary">Contribua Conosco</a>
-                </div>
-                <div class="dots" aria-label="Ir para slide" id="dots"></div>
-            </div>  
-            <div class="slides" aria-live="polite">
-                <div class="slide active">
-                <img src="{{ url_for('static', filename='img/banner1.png') }}" alt="img 1">
-            </div>
-
-            <div class="slide">
-                <img src="{{ url_for('static', filename='img/banner2.png') }}" alt="img 2">
-            </div>
-
-            <div class="slide">
-                <img src="{{ url_for('static', filename='img/banner3.png') }}" alt="img 3">
-            </div>
-            </div>
-        </div>
-    </main>
 
     <section id="catalog">
         <div class="container">
@@ -249,10 +251,10 @@
             </div>
             <div id="contact">
                 <h2>Contato</h2>
-                <form id="contactForm" onsubmit="event.preventDefault(); alert('Mensagem enviada!')">
-                    <input required placeholder="Seu nome">
-                    <input required type="email" placeholder="Seu email">
-                    <textarea placeholder="Mensagem"></textarea>
+                <form id="contactForm" onsubmit="sendEmail(event)">
+                    <input id="name" required placeholder="Seu nome">
+                    <input id="email" required type="email" placeholder="Seu email">
+                    <textarea id="message" placeholder="Mensagem"></textarea>
                     <button class="btn" type="submit">Enviar</button>
                 </form>
                 <!-- <p id="response"></p> -->
@@ -360,5 +362,7 @@
     <script src="{{ url_for('static', filename='js/cart.js') }}"></script>
     <script src="{{ url_for('static', filename='js/whats.js') }}"></script>
     <script src="{{ url_for('static', filename='js/posts.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/email.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/novidades.js') }}"></script>
 </body>
 </html>

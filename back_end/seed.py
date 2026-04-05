@@ -7,8 +7,8 @@ db_session.query(Book).delete()
 db_session.query(Author).delete()
 db_session.query(Post).delete()
 db_session.query(Launch).delete()
-# db_session.query(Recommendation).delete()
-# db_session.query(Article).delete()
+db_session.query(Recommendation).delete()
+db_session.query(Article).delete()
 
 livro1 = Book(
     title="Fragmentos de Mim",
@@ -128,6 +128,11 @@ recommendation7 = Recommendation(
     text="1️⃣ Comece com 10 minutos por dia<br><strong>Porque ler pouco é melhor do que não ler — e é assim que o hábito nasce.</strong><br>Não precisa começar com capítulos longos ou metas rígidas. Dez minutos já ensinam o cérebro a entrar no ritmo sem pressão. Com o tempo, esses 10 viram 15, 20, 30… naturalmente.<strong>O importante não é a quantidade, é a constância.</strong><br><br>2️⃣ Escolha temas que você realmente gosta<br><strong>A leitura só vira hábito quando vira prazer.</strong><br>Esqueça a obrigação de ler clássicos ou livros que outros consideram “melhores”. Comece por aquilo que conversa contigo: fantasia, romance, terror, mistério, poesia, desenvolvimento pessoal…<strong>Quando você lê pelo desejo, o cérebro volta sozinho para o livro.</strong><br><br>3️⃣ Tenha um livro sempre por perto<br><strong>Conveniente = constante.</strong><br>Se o livro está longe, você adia. Se está por perto, você lê. Deixe um no criado-mudo, outro na mochila, salve um e-book no celular para momentos vazios — fila, ônibus, intervalo.<strong>Facilitar o acesso transforma leitura em hábito diário.</strong><br><br>4️⃣ Crie um momento de leitura<br><strong>Rituais transformam ações em hábitos.</strong><br>Escolha um horário: antes de dormir, durante o café, no transporte, no intervalo da escola ou do trabalho. Aos poucos, o cérebro entende que aquele é “o momento de ler”.<strong>Quando vira ritual, não depende mais de motivação — vira parte de você.</strong><br><br>5️⃣ Desconecte um pouco<br><strong>Trocar 10 minutos de redes por leitura já muda tudo.</strong><br>Esse tempo pequeno se acumula: em uma semana, quase duas horas; em um mês, um livro inteiro. E a leitura oferece o que as redes não oferecem: foco, calma e profundidade.<strong>Você não precisa de mais tempo — só de um pouco menos de distração.</strong><br><br><strong>Lembre-se:</strong><br>A leitura é construída, não herdada. Quanto mais você lê, mais natural — e transformadora — ela se torna."
 )
 
+recommendation8 = Recommendation(
+    title="Quais são e como funcionam os serviços da empresa?",
+    text="1️⃣ Diagramação<br><strong>Organizamos o conteúdo do seu livro para ficar bonito e fácil de ler.</strong><br>Escolhemos fontes que combinam com a proposta da obra e cuidamos de margens, espaçamento e alinhamento para dar conforto na leitura. Também estruturamos páginas, cabeçalhos e sumário de forma clara e funcional.<strong>No final, o livro fica com um visual profissional e com a sua identidade.</strong><br><br>2️⃣ Capa<br><strong>Criamos capas que chamam atenção e representam bem a história.</strong><br>Fazemos capa completa para livro físico (frente, lombada e verso) e também para e-book. O design é personalizado: escolhemos tipografia, cores e composição de acordo com o gênero e a proposta do livro. Podemos incluir ilustrações ou editar imagens conforme o briefing.<strong>Você recebe tudo pronto para publicar ou imprimir.</strong><br><br><strong>Diferencial:</strong><br>Cada capa é pensada com cuidado, equilibrando estética e significado.<br><br><strong>Prazo:</strong><br>De 7 a 15 dias úteis (depende da complexidade).<br><br>3️⃣ Divulgação<br><strong>Ajudamos seu livro a chegar nas pessoas certas.</strong><br>Criamos teasers, sinopses e materiais de divulgação para antes, durante e depois do lançamento. Também planejamos estratégias de engajamento (como sorteios, reels e interações) e podemos apoiar parcerias com influenciadores literários.<strong>Tudo é feito de forma personalizada, sem fórmulas prontas.</strong><br><br><strong>Diferencial:</strong><br>Divulgação feita com cuidado real, pensando no leitor e não só em números.<br><br>4️⃣ Contato<br><strong>Fale com a gente de forma simples.</strong><br>Se quiser orçamento, tirar dúvidas ou conversar sobre seu projeto, é só chamar. Pode mandar direct ou e-mail.<br><strong>Estamos disponíveis para te ajudar.</strong>"
+)
+
 article1 = Article(
     img="static/img/artigo1.png",
     caption="Para alguns, é só um caderno e uma caneta. Para outros, é o único jeito de manter a sanidade. 🖋✨"
@@ -208,12 +213,27 @@ article16 = Article(
     caption="📖✨ Na Solielle, acreditamos no poder das palavras para transformar finais — e vidas. ✍️ C. S. Lewis"
 )
 
+article17 = Article(
+    img="static/img/artigo17.png",
+    caption="✨ Na literatura, não há pressa. Cada voz tem seu tempo, cada palavra seu brilho. Na Solielle, acreditamos em histórias autênticas — exatamente como quem as escreve. 📚🌿"
+)
+
+article18 = Article(
+    img="static/img/artigo18.png",
+    caption="Essa frase faz parte do livro Fragmentos de Mim, da jovem autora Gabrielle Corrêa, uma obra sensível que transforma sentimentos e vivências da adolescência em poesia. 📖"
+)
+
+article19 = Article(
+    img="static/img/artigo19.png",
+    caption="Resiliência é a força silenciosa que nos faz recomeçar, mesmo quando tudo parece difícil. 🌿✨ É cair, aprender, se reconstruir… e ainda florescer mais forte."
+)
+
 db_session.add_all([livro1, livro2, livro3])
 db_session.add_all([autor1, autor2, autor3])
 db_session.add_all([post1, post2, post3])
 db_session.add_all([launch1])
-db_session.add_all([recommendation1, recommendation2, recommendation3, recommendation4, recommendation5, recommendation6, recommendation7])
-db_session.add_all([article1, article2, article3, article4, article5, article6, article7, article8, article9, article10, article11, article12, article13, article14, article15])
+db_session.add_all([recommendation1, recommendation2, recommendation3, recommendation4, recommendation5, recommendation6, recommendation7, recommendation8])
+db_session.add_all([article1, article2, article3, article4, article5, article6, article7, article8, article9, article10, article11, article12, article13, article14, article15, article16, article17, article18, article19])
 db_session.commit()
 
 print("Banco populado! 👍")

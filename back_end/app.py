@@ -18,6 +18,60 @@ def shutdown_session(exception=None):
 def index():
     return render_template('index.html')
 
+@app.route('/api/novidades')
+def novidades():
+    books = Book.query.all()
+    authors = Author.query.all()
+    posts = Post.query.all()
+    launches = Launch.query.all()
+    recommendations = Recommendation.query.all()
+    articles = Article.query.all()
+
+    everything = []
+
+    for b in books:
+        everything.append({
+            "tipo": "book",
+            "titulo": b.title,
+            "data": b.created_at.isoformat()
+        })
+    for a in authors:
+        everything.append({
+            "tipo": "author",
+            "titulo": a.name,
+            "data": a.created_at.isoformat()
+        })
+    for p in posts:
+        everything.append({
+            "tipo": "post",
+            "titulo": p.title,
+            "data": p.created_at.isoformat()
+        })
+    for l in launches:
+        everything.append({
+            "tipo": "launch",
+            "titulo": l.title,
+            "data": l.created_at.isoformat()
+        })
+    for r in recommendations:
+        everything.append({
+            "tipo": "recommendation",
+            "titulo": r.title,
+            "data": r.created_at.isoformat()
+        })
+    for a in articles:
+        everything.append({
+            "tipo": "article",
+            "titulo": a.caption,
+            "data": a.created_at.isoformat()
+        })
+
+    # do mais novo para o mais velho
+    everything.sort(key=lambda x: x['data'], reverse=True)
+
+    return(jsonify(everything))
+
+
 @app.route('/api/books')
 def get_books():
     books = Book.query.all()
