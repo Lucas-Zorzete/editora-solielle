@@ -21,5 +21,5 @@ Base.query = db_session.query_property()
 load_dotenv()
 
 def init_db():
-    import models
+    from back_end import models
     Base.metadata.create_all(bind=engine)
