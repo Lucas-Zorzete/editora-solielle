@@ -122,7 +122,7 @@ const renderBooks = (list) => {
           <div class="meta">${b.author} • ${b.genre}</div>
           <div class="price"><p>R$ ${price}</p></div>
           <div class="buttons" style="display: flex; flex-direction: column; gap: .8rem">
-            <button onclick="window.open('${b.link}', '_blank')" class="btn" style="font-size: 1em">
+            <button onclick="window.open('https://github.com/Lucas-Zorzete', '_blank')" class="btn" style="font-size: 1em">
               <i class="ri-whatsapp-line" style="font-size: 1em; font-weight: 300;"></i> 
               Comprar
             </button>
