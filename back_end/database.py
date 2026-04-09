@@ -22,4 +22,5 @@ load_dotenv()
 
 def init_db():
     from back_end import models
+    Base.metadata.drop_all(bind=engine)
     Base.metadata.create_all(bind=engine)
