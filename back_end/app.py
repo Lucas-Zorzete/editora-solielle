@@ -4,6 +4,9 @@ from flask_cors import CORS
 from back_end.database import db_session, init_db
 from back_end.models import Book, Author, Post, Launch, Recommendation, Article
 from datetime import datetime
+from back_end.seed import seed_db
+
+seed_db()
 
 app = Flask(__name__)
 CORS(app)
@@ -18,12 +21,6 @@ def shutdown_session(exception=None):
 @app.route('/')
 def index():
     return render_template('index.html')
-
-@app.route('/seed')
-def seed():
-    from back_end.seed import seed_db
-    seed_db()
-    return "Banco Populado!"
 
 @app.route('/api/novidades')
 def novidades():
