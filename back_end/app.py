@@ -3,6 +3,7 @@ from flask import Flask, render_template, jsonify
 from flask_cors import CORS
 from database import db_session, init_db
 from models import Book, Author, Post, Launch, Recommendation, Article
+from datetime import datetime
 
 app = Flask(__name__)
 CORS(app)
@@ -20,12 +21,12 @@ def index():
 
 @app.route('/api/novidades')
 def novidades():
-    books = Book.query.all()
-    authors = Author.query.all()
-    posts = Post.query.all()
-    launches = Launch.query.all()
-    recommendations = Recommendation.query.all()
-    articles = Article.query.all()
+    books = db_session.query(Book).order_by(Book.created_at.desc())
+    authors = db_session.query(Author).order_by(Author.created_at.desc())
+    posts = db_session.query(Post).order_by(Post.created_at.desc())
+    launches = db_session.query(Launch).order_by(Launch.created_at.desc())
+    recommendations = db_session.query(Recommendation).order_by(Recommendation.created_at.desc())
+    articles = db_session.query(Article).order_by(Article.created_at.desc())
 
     everything = []
 
@@ -33,42 +34,45 @@ def novidades():
         everything.append({
             "tipo": "book",
             "titulo": b.title,
-            "data": b.created_at.isoformat()
+            "data": b.created_at.isoformat() if b.created_at else None
         })
     for a in authors:
         everything.append({
             "tipo": "author",
             "titulo": a.name,
-            "data": a.created_at.isoformat()
+            "data": a.created_at.isoformat() if a.created_at else None
         })
     for p in posts:
         everything.append({
             "tipo": "post",
             "titulo": p.title,
-            "data": p.created_at.isoformat()
+            "data": p.created_at.isoformat() if p.created_at else None
         })
     for l in launches:
         everything.append({
             "tipo": "launch",
             "titulo": l.title,
-            "data": l.created_at.isoformat()
-        })
+            "data": l.created_at.isoformat() if l.created_at else None
+        }) 
     for r in recommendations:
         everything.append({
             "tipo": "recommendation",
             "titulo": r.title,
-            "data": r.created_at.isoformat()
+            "data": r.created_at.isoformat() if r.created_at else None
         })
     for a in articles:
         everything.append({
             "tipo": "article",
             "titulo": a.caption,
-            "data": a.created_at.isoformat()
+            "data": a.created_at.isoformat() if a.created_at else None
         })
 
     # do mais novo para o mais velho
-    everything.sort(key=lambda x: x['data'], reverse=True)
-
+    everything.sort(
+        key=lambda x: datetime.fromisoformat(x['data']) if x['data'] else datetime.min,
+        reverse=True
+    )
+    
     return(jsonify(everything))
 
 
@@ -78,7 +82,8 @@ def get_books():
     return jsonify([{
         "id": b.id, "title": b.title, "author": b.author,
         "genre": b.genre, "sinopse": b.synopsis,
-        "price": b.price, "cover": b.cover, "link": b.link
+        "price": b.price, "cover": b.cover, "link": b.link,
+        "created_at": b.created_at.isoformat()
     } for b in books])
 
 @app.route('/api/authors')
