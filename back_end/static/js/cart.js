@@ -50,8 +50,9 @@ function updateCart() {
   `).join('');
 
   const total = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
   cartTotal.textContent = `R$${total.toFixed(2).replace('.', ',')}`;
-  quantitySpan.textContent = cart.length;
+  quantitySpan.textContent = totalItems;
 }
 
 // Função para adicionar ao carrinho
@@ -71,7 +72,6 @@ function addToCart(id) {
   }
 
   updateCart();
-  updateCartQuantity(1);
   showToast(`${book.title} adicionado ao carrinho!`);
 }
 
@@ -88,7 +88,6 @@ function changeQuantity(id, change) {
   }
 
   updateCart(); 
-  updateCartQuantity(change);
 }
 
 
@@ -99,7 +98,6 @@ function removeFromCart(id) {
     const removedQty = cart[index].quantity;
     cart.splice(index, 1);
     
-    updateCartQuantity(-removedQty);
     updateCart();
   }
 }
