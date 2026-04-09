@@ -1,8 +1,8 @@
 import os
 from flask import Flask, render_template, jsonify
 from flask_cors import CORS
-from database import db_session, init_db
-from models import Book, Author, Post, Launch, Recommendation, Article
+from back_end.database import db_session, init_db
+from back_end.models import Book, Author, Post, Launch, Recommendation, Article
 from datetime import datetime
 
 app = Flask(__name__)
