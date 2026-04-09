@@ -4,9 +4,6 @@ from flask_cors import CORS
 from back_end.database import db_session, init_db
 from back_end.models import Book, Author, Post, Launch, Recommendation, Article
 from datetime import datetime
-from back_end.seed import seed_db
-
-seed_db()
 
 app = Flask(__name__)
 CORS(app)
