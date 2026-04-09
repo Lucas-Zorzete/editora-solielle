@@ -51,6 +51,18 @@
                     const themeBtnLight = document.getElementById("light-btn");
                     const themeBtnDark = document.getElementById("night-btn");
 
+                    const savedTheme = localStorage.getItem('theme');
+
+                    if (savedTheme === 'dark') {
+                        document.body.classList.add("darkTheme");
+                        themeBtnLight.style.display = "none";
+                        themeBtnDark.style.display = "block";
+                    } else {
+                        document.body.classList.remove("darkTheme");
+                        themeBtnLight.style.display = "block";
+                        themeBtnDark.style.display = "none";
+                    }
+
                     themeBtnLight.addEventListener("click", () => {
                         document.body.classList.toggle("darkTheme");
                     });
