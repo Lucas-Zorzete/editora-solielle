@@ -6,6 +6,13 @@ def seed_db():
 
     Base.metadata.create_all(bind=engine)
 
+    db_session.query(Book).delete()
+    db_session.query(Author).delete()
+    db_session.query(Post).delete()
+    db_session.query(Launch).delete()
+    db_session.query(Recommendation).delete()
+    db_session.query(Article).delete()
+
     now = datetime.now(timezone.utc)
 
     livro1 = Book(
