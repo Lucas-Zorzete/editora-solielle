@@ -160,13 +160,13 @@ def seed_db():
     )
 
     article2 = Article(
-        img="static/img/artigo2.png",
+        img="static/img/Artigo2.png",
         caption="Nem toda escrita precisa de aplausos. Às vezes, é só a alma pedindo para respirar entre as linhas. 📝💛",
         created_at=now - timedelta(hours=18)
     )
 
     article3 = Article(
-        img="static/img/artigo3.png",
+        img="static/img/Artigo3.png",
         caption="✨ Quantas vezes você já imaginou segurar sua própria história impressa? Sentir o peso dos seus personagens, das suas palavras, do seu sonho realizado?",
         created_at=now - timedelta(hours=17)
     )
