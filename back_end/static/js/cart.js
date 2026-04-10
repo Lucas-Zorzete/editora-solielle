@@ -10,23 +10,23 @@ const quantitySpan = document.querySelector('.quantity');
 
 let cart = [];
 
-// function updateCartQuantity(change) {
-//     const cartBtn = document.getElementById('cart-btn');
-//     const quantitySpan = cartBtn.querySelector('.quantity');
+function updateCartQuantity(change) {
+    const cartBtn = document.getElementById('cart-btn');
+    const quantitySpan = cartBtn.querySelector('.quantity');
     
-//     // Pega valor atual do data-quantity
-//     let current = parseInt(cartBtn.dataset.quantity);
+    // Pega valor atual do data-quantity
+    let current = parseInt(cartBtn.dataset.quantity);
     
-//     // Atualiza o valor
-//     current += change;
+    // Atualiza o valor
+    current += change;
     
-//     // Impede número negativo
-//     if (current < 0) current = 0;
+    // Impede número negativo
+    if (current < 0) current = 0;
     
-//     // Atualiza no atributo e no texto
-//     cartBtn.dataset.quantity = current;
-//     quantitySpan.textContent = current;
-// }
+    // Atualiza no atributo e no texto
+    cartBtn.dataset.quantity = current;
+    quantitySpan.textContent = current;
+}
 
 /// Função para atualizar a interface do carrinho
 function updateCart() {
@@ -56,7 +56,9 @@ function updateCart() {
 
   const cartBtn = document.getElementById('cart-btn');
   const quantitySpan = cartBtn.querySelector('.quantity');
+
   quantitySpan.textContent = totalItems;
+  cartBtn.dataset.quantity = totalItems;
 }
 
 // Função para adicionar ao carrinho
@@ -99,10 +101,7 @@ function changeQuantity(id, change) {
 function removeFromCart(id) {
   const index = cart.findIndex(b => b.id === id);
   if (index !== -1) {
-    const removedQty = cart[index].quantity;
     cart.splice(index, 1);
-    
-    updateCart();
   }
 }
 
