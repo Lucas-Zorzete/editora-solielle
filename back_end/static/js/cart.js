@@ -53,6 +53,9 @@ function updateCart() {
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   cartTotal.textContent = `R$${total.toFixed(2).replace('.', ',')}`;
+
+  const cartBtn = document.getElementById('cart-btn');
+  const quantitySpan = cartBtn.querySelector('.quantity');
   quantitySpan.textContent = totalItems;
 }
 
