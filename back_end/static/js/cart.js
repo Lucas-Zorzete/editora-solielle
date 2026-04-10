@@ -90,20 +90,17 @@ function changeQuantity(id, change) {
   // Se chegar a zero, remove do carrinho
   if (item.quantity <= 0) {
       removeFromCart(id);
-      return;
+  } else{
+    updateCart(); 
   }
-
-  updateCart(); 
 }
 
 
 // Função para remover
 function removeFromCart(id) {
-  const index = cart.findIndex(b => b.id === id);
-  if (index !== -1) {
-    cart.splice(index, 1);
-  }
-}
+  cart = cart.filter(item => item.id !== id);
+  updateCart();
+} 
 
 function showToast(message) {
   const toast = document.getElementById('toast');
