@@ -8,7 +8,7 @@ const cartItems = document.querySelector('#cart-items');
 const cartTotal = document.querySelector('#cart-total');
 const quantitySpan = document.querySelector('.quantity');
 
-let cart = [];
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 function updateCartQuantity(change) {
     const cartBtn = document.getElementById('cart-btn');
@@ -59,6 +59,8 @@ function updateCart() {
 
   quantitySpan.textContent = totalItems;
   cartBtn.dataset.quantity = totalItems;
+
+  localStorage.setItem('cart', JSON.stringify(cart));
 }
 
 // Função para adicionar ao carrinho
@@ -133,3 +135,5 @@ document.addEventListener('click', (e) => {
     addToCart(id);
   }
 });
+
+updateCart();
